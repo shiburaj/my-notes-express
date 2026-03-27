@@ -14,7 +14,7 @@ const getNotes = async function() {
         const [rows] = await connection.execute("SELECT * FROM notes ORDER BY id DESC");
         return rows;
     } catch (err) {
-        throw err;
+        //throw err;
     } finally {
         if (connection) await connection.end(); // Close connection
     }
@@ -27,7 +27,7 @@ const saveNote = async function(content) {
         const [rows] = await connection.execute("INSERT INTO notes (content) VALUES (?)", [content]);
         return rows;
     } catch (err) {
-        throw err;
+        //throw err;
     } finally {
         if (connection) await connection.end(); // Close connection
     }
@@ -40,7 +40,7 @@ const deleteNote = async function(id) {
         const [rows] = await connection.execute("DELETE FROM notes WHERE id = ?", [id]);
         return rows;
     } catch (err) {
-        throw err;
+        //throw err;
     } finally {
         if (connection) await connection.end(); // Close connection
     }
